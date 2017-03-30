@@ -15614,10 +15614,10 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Projects\\PAX\\MyPeopleSample\\Eyup\\Eyup.csproj",
+      "projectUniqueName": "C:\\Projects\\Eyup\\Eyup\\Eyup.csproj",
       "projectName": "Eyup",
-      "projectPath": "C:\\Projects\\PAX\\MyPeopleSample\\Eyup\\Eyup.csproj",
-      "projectJsonPath": "C:\\Projects\\PAX\\MyPeopleSample\\Eyup\\project.json",
+      "projectPath": "C:\\Projects\\Eyup\\Eyup\\Eyup.csproj",
+      "projectJsonPath": "C:\\Projects\\Eyup\\Eyup\\project.json",
       "projectStyle": "ProjectJson"
     },
     "dependencies": {

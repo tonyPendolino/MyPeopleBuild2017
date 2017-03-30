@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Activation;
 
 namespace Eyup.Model
 {
@@ -10,5 +11,7 @@ namespace Eyup.Model
     {
         public string Scheme { get; set; }
         public string ContactRemoteIds { get; set; }
+        public AppContact AppContact { get; set; }
+        public ShareTargetActivatedEventArgs ShareTargetActivatedEventArgs { get; set; }
     }
 }

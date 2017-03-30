@@ -7,11 +7,11 @@ using Windows.ApplicationModel.Activation;
 
 namespace Eyup.Services
 {
-    public class NavigationHelperService
+    public class MyNavigationHelperService
     {
-        private static NavigationHelperService current;
+        private static MyNavigationHelperService current;
 
-        public static NavigationHelperService Current => current ?? (current = new NavigationHelperService());
+        public static MyNavigationHelperService Current => current ?? (current = new MyNavigationHelperService());
 
         public string GetProtocolScheme(IActivatedEventArgs parameter)
         {

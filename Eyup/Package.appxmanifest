@@ -21,20 +21,21 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="white" />
       </uap:VisualElements>
       <Extensions>
-        <uap:Extension Category="windows.protocol">
-          <uap:Protocol Name="ms-ipmessaging">
-            <uap:DisplayName>Eyup</uap:DisplayName>
-          </uap:Protocol>
+        <uap:Extension Category="windows.shareTarget">
+          <uap:ShareTarget>
+            <uap:DataFormat>URI</uap:DataFormat>
+            <uap:DataFormat>Bitmap</uap:DataFormat>
+          </uap:ShareTarget>
         </uap:Extension>
         <uap:Extension Category="windows.protocol">
           <uap:Protocol Name="ms-contact-profile">
             <uap:DisplayName>Eyup</uap:DisplayName>
           </uap:Protocol>
         </uap:Extension>
-        <uap:Extension Category="windows.shareTarget">
-          <uap:ShareTarget>
-            <uap:DataFormat>URI</uap:DataFormat>
-          </uap:ShareTarget>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="ms-ipmessaging">
+            <uap:DisplayName>Eyup</uap:DisplayName>
+          </uap:Protocol>
         </uap:Extension>
         <uap4:Extension Category="windows.contactPanel">
           <uap4:ContactPanel SupportsUnknownContacts="true" />

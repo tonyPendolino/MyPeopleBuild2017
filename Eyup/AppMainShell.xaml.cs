@@ -26,6 +26,8 @@ using Windows.Storage.Streams;
 using Windows.UI.Core;
 using Eyup.Views;
 using Eyup.Helpers;
+using Windows.ApplicationModel.DataTransfer.ShareTarget;
+using Windows.ApplicationModel.DataTransfer;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -41,6 +43,8 @@ namespace Eyup
         public Frame AppFrame { get { return this.AppMainShellFrame; } }
 
         public static AppMainShell Current = null;
+
+        private ShareTargetActivatedEventArgs _shareTargetActivatedEventArgs;
 
         public AppMainShell()
         {
@@ -59,7 +63,12 @@ namespace Eyup
             var parentFrame = (sender as Page).Parent as Frame;
             if (parentFrame.Name == "AppMainShellFrame")
             {
-                AppFrame.Navigate(typeof(ProfilePage), e.AppContact);
+                NavigationParameter navigationParameter = new NavigationParameter
+                {
+                    AppContact = e.AppContact
+                };
+
+                AppFrame.Navigate(typeof(ProfilePage), navigationParameter);
             }
         }
 
@@ -84,19 +93,31 @@ namespace Eyup
                 var selectedAppContact = (from c in App.AppContacts where c.ContactId == navigationParameter.ContactRemoteIds select c).FirstOrDefault();
                 ContactsPage.SelectedAppContact = selectedAppContact;
 
+                navigationParameter.AppContact = selectedAppContact;
+
                 switch (navigationParameter?.Scheme)
                 {
                     case "ms-ipmessaging":
                         {
-                            AppFrame.Navigate(typeof(ChatPage), selectedAppContact);
+                            AppFrame.Navigate(typeof(ChatPage), navigationParameter);
                         }
                         break;
                     case "ms-contact-profile":
                         {
-                            AppFrame.Navigate(typeof(ProfilePage), selectedAppContact);
+                            AppFrame.Navigate(typeof(ProfilePage), navigationParameter);
                         }
                         break;
                 }
+            }
+        }
+
+        public void NavigateToPageFromShare(ShareTargetActivatedEventArgs shareTargetActivatedEventArgs)
+        {
+            _shareTargetActivatedEventArgs = shareTargetActivatedEventArgs;
+
+            if (_shareTargetActivatedEventArgs != null)
+            {
+                ContactPickerPopup.IsOpen = true;
             }
         }
 
@@ -104,16 +125,55 @@ namespace Eyup
         {
             Current = this;
             ContactsPage.SelectedAppContactChanged += ContactsPage_SelectedAppContactChanged;
+            ContactPicker.AppContactPicked += ContactPicker_AppContactPicked;
+        }
+
+        private void ContactPicker_AppContactPicked(object sender, AppContactEventArgs e)
+        {
+            ContactPickerPopup.IsOpen = false;
+            if(_shareTargetActivatedEventArgs != null)
+            {
+                NavigationParameter navigationParameter = new NavigationParameter
+                {
+                    AppContact = e.AppContact,
+                    ShareTargetActivatedEventArgs = _shareTargetActivatedEventArgs
+                };
+
+                AppFrame.Navigate(typeof(ChatPage), navigationParameter);
+
+                //var shareOperation = _shareTargetActivatedEventArgs.ShareOperation;
+
+                //if (shareOperation.Data.Contains(StandardDataFormats.WebLink))
+                //{
+
+                //}
+
+                //if (shareOperation.Data.Contains(StandardDataFormats.Bitmap))
+                //{
+
+                //}
+            }
+            _shareTargetActivatedEventArgs = null;
         }
 
         private void ContactsPage_SelectedAppContactChanged(object sender, AppContactEventArgs e)
         {
-            AppFrame.Navigate(typeof(ChatPage), e.AppContact);
+            NavigationParameter navigationParameter = new NavigationParameter
+            {
+                AppContact = e.AppContact
+            };
+
+            AppFrame.Navigate(typeof(ChatPage), navigationParameter);
         }
 
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void ContactPickerPopup_Loaded(object sender, RoutedEventArgs e)
+        {
+            ContactPickerPopup.HorizontalOffset = (Window.Current.Bounds.Width - ContactPickerPopup.ActualWidth) / 2;
         }
     }
 }

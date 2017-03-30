@@ -14,7 +14,7 @@ namespace Eyup.Model
 
         public AppContact()
         {
-            ChatHistory = new ObservableCollection<string>();
+            ChatHistory = new ObservableCollection<ChatMessage>();
         }
 
         private string contactId;
@@ -101,9 +101,9 @@ namespace Eyup.Model
             }
         }
 
-        private ObservableCollection<string> chatHistory;
+        private ObservableCollection<ChatMessage> chatHistory;
 
-        public ObservableCollection<string> ChatHistory
+        public ObservableCollection<ChatMessage> ChatHistory
         {
             get { return chatHistory; }
             set

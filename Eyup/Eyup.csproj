@@ -101,12 +101,18 @@
       <DependentUpon>AppContactPanelShell.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AppContactEventArgs.cs" />
+    <Compile Include="Helpers\SenderOrReceiverToHorizontalAlignmentConverter.cs" />
+    <Compile Include="Model\ChatMessage.cs" />
     <Compile Include="Model\NavigationParameter.cs" />
-    <Compile Include="Services\NavigationHelperService.cs" />
+    <Compile Include="Services\MyChatService.cs" />
+    <Compile Include="Services\MyNavigationHelperService.cs" />
     <Compile Include="Views\ChatPage.xaml.cs">
       <DependentUpon>ChatPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="Views\ContactPicker.xaml.cs">
+      <DependentUpon>ContactPicker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ContactsPage.xaml.cs">
       <DependentUpon>ContactsPage.xaml</DependentUpon>
     </Compile>
@@ -178,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ChatPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContactPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
