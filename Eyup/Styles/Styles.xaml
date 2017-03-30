@@ -1,0 +1,92 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:views="using:Eyup.Views"
+    xmlns:local="using:Eyup.Styles">
+
+    <!-- AppMainShell Styles -->
+
+    <Style x:Key="ContactsPageStyle" TargetType="views:ContactsPage">
+        <Setter Property="Width" Value="240" />
+    </Style>
+
+    <!-- ContactsPage Styles -->
+
+    <Style x:Key="ContactTemplateRootGrid" TargetType="Grid">
+        <Setter Property="Width" Value="200" />
+    </Style>
+    
+    <Style x:Key="ContactTemplateEllipseStyle" TargetType="Ellipse">
+        <Setter Property="Margin" Value="10" />
+        <Setter Property="Height" Value="75" />
+        <Setter Property="Width" Value="75" />
+    </Style>
+
+    <Style x:Key="ContactTemplateFirstNameStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Padding" Value="10" />
+    </Style>
+
+    <Style x:Key="ContactTemplatePushpinStyle" TargetType="Button">
+        <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+    </Style>
+
+    <!-- ChatPage Styles -->
+
+    <Style x:Key="ChatPageAvatarEllipseStyle" TargetType="Ellipse">
+        <Setter Property="Height" Value="100" />
+        <Setter Property="Width" Value="100" />
+    </Style>
+
+    <Style x:Key="ChatHistoryListViewStyle" TargetType="ListView">
+        <Setter Property="Background" Value="White" />
+    </Style>
+
+    <Style x:Key="ChatTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Background" Value="AliceBlue" />
+    </Style>
+    
+    <!-- ProfilePage Styles -->
+    
+    <Style x:Key="ProfilePageAvatarEllipseStyle" TargetType="Ellipse">
+        <Setter Property="Height" Value="200" />
+        <Setter Property="Width" Value="200" />
+    </Style>
+
+    <Style x:Key="ProfilePageDetailsBorder" TargetType="Border">
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="Margin" Value="2" />
+    </Style>
+
+    <Style x:Key="ProfilePageDetailsGrid" TargetType="Grid">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="ProfilePageFirstName" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+
+    <Style x:Key="ProfilePageLastName" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+
+    <Style x:Key="ProfilePageTelephoneNumber" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style x:Key="ProfilePageEmailAddress" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontSize" Value="15" />
+    </Style>
+
+</ResourceDictionary>
