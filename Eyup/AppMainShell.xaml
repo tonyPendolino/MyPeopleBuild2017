@@ -23,5 +23,22 @@
             </Frame.ContentTransitions>
         </Frame>
 
+<<<<<<< HEAD
+=======
+        <Popup x:Name="ContactPickerPopup" IsOpen="False" IsLightDismissEnabled="True" Style="{StaticResource ContactPickerPopupStyle}" Loaded="ContactPickerPopup_Loaded">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <PaneThemeTransition Edge="Left" />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+
+            <Border Style="{StaticResource ContactPickerBorderStyle}">
+                <ScrollViewer Style="{StaticResource ContactPickerScrollViewerStyle}">
+                    <views:ContactPicker x:Name="ContactPicker" />
+                </ScrollViewer>
+            </Border>
+        </Popup>
+        
+>>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
     </RelativePanel>
 </Page>

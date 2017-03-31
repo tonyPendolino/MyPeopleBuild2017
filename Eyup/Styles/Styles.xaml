@@ -4,12 +4,35 @@
     xmlns:views="using:Eyup.Views"
     xmlns:local="using:Eyup.Styles">
 
+<<<<<<< HEAD
+=======
+    <!-- General Styles -->
+
+>>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
     <!-- AppMainShell Styles -->
 
     <Style x:Key="ContactsPageStyle" TargetType="views:ContactsPage">
         <Setter Property="Width" Value="240" />
     </Style>
 
+<<<<<<< HEAD
+=======
+    <Style x:Key="ContactPickerPopupStyle" TargetType="Popup">
+        <Setter Property="VerticalOffset" Value="100" />
+        <Setter Property="Width" Value="320" />
+    </Style>
+
+    <Style x:Key="ContactPickerScrollViewerStyle" TargetType="ScrollViewer">
+        <Setter Property="Width" Value="320" />
+        <Setter Property="Height" Value="320" />
+    </Style>
+
+    <Style x:Key="ContactPickerBorderStyle" TargetType="Border">
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="Black" />
+    </Style>
+
+>>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
     <!-- ContactsPage Styles -->
 
     <Style x:Key="ContactTemplateRootGrid" TargetType="Grid">
@@ -45,10 +68,51 @@
         <Setter Property="Background" Value="White" />
     </Style>
 
+<<<<<<< HEAD
     <Style x:Key="ChatTextBoxStyle" TargetType="TextBox">
         <Setter Property="Background" Value="AliceBlue" />
     </Style>
     
+=======
+    <Style x:Key="ChatHistoryListViewItemContainerStyle" TargetType="ListViewItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    </Style>
+    
+    <Style x:Key="ChatTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Background" Value="AliceBlue" />
+    </Style>
+
+    <Style x:Key="ChatHistoryItemTemplateImageStyle" TargetType="Image">
+        <Setter Property="Stretch" Value="UniformToFill" />
+        <Setter Property="Height" Value="200" />
+    </Style>
+
+    <!-- ContactPicker Styles -->
+
+    <Style x:Key="ContactPickerRootGridStyle" TargetType="Grid">
+        <Setter Property="Background" Value="White" />
+    </Style>
+
+    <Style x:Key="ContactPickerShareToTextStyle" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Margin" Value="10" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="ContactPickerTemplateFirstNameStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Padding" Value="10" />
+    </Style>
+
+    <Style x:Key="ContactPickerTemplateLastNameStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Padding" Value="10" />
+    </Style>
+
+>>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
     <!-- ProfilePage Styles -->
     
     <Style x:Key="ProfilePageAvatarEllipseStyle" TargetType="Ellipse">
