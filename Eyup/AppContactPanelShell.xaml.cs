@@ -79,8 +79,13 @@ namespace Eyup
             {
                 appContact = (from a in App.AppContacts where a.ContactId == _appContactId select a).FirstOrDefault();
             }
-            
-            AppFrame.Navigate(typeof(ChatPage), appContact);
+
+            NavigationParameter navigationParameter = new NavigationParameter
+            {
+                AppContact = appContact
+            };
+
+            AppFrame.Navigate(typeof(ChatPage), navigationParameter);
         }
 
         private async void ContactPanel_LaunchFullAppRequested(ContactPanel sender, ContactPanelLaunchFullAppRequestedEventArgs args)

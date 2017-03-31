@@ -11,7 +11,7 @@
     <AssemblyName>Eyup</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.15063.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.16168.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -101,12 +101,18 @@
       <DependentUpon>AppContactPanelShell.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AppContactEventArgs.cs" />
+    <Compile Include="Helpers\SenderOrReceiverToHorizontalAlignmentConverter.cs" />
+    <Compile Include="Model\ChatMessage.cs" />
     <Compile Include="Model\NavigationParameter.cs" />
-    <Compile Include="Services\NavigationHelperService.cs" />
+    <Compile Include="Services\MyChatService.cs" />
+    <Compile Include="Services\MyNavigationHelperService.cs" />
     <Compile Include="Views\ChatPage.xaml.cs">
       <DependentUpon>ChatPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="Views\ContactPicker.xaml.cs">
+      <DependentUpon>ContactPicker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ContactsPage.xaml.cs">
       <DependentUpon>ContactsPage.xaml</DependentUpon>
     </Compile>
@@ -178,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ChatPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContactPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

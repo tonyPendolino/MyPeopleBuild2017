@@ -32,7 +32,8 @@ namespace Eyup.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            AppContact = e.Parameter as AppContact;
+            var navigationParameter = e.Parameter as NavigationParameter;
+            AppContact = navigationParameter.AppContact;
         }
     }
 }

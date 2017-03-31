@@ -33,6 +33,9 @@
         </uap:Extension>
         <uap:Extension Category="windows.shareTarget">
           <uap:ShareTarget>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.jpg</uap:FileType>
+            </uap:SupportedFileTypes>
             <uap:DataFormat>URI</uap:DataFormat>
           </uap:ShareTarget>
         </uap:Extension>

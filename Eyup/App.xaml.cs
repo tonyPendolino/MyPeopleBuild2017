@@ -20,6 +20,8 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Eyup.Services;
 using Windows.ApplicationModel.Contacts;
+using Windows.ApplicationModel.DataTransfer.ShareTarget;
+using Windows.ApplicationModel.DataTransfer;
 
 namespace Eyup
 {
@@ -132,8 +134,8 @@ namespace Eyup
                     }
 
                     var appMainShell = rootFrame.Content as AppMainShell;
-                    var contactRemoteIds = NavigationHelperService.Current.GetContactRemoteIds(args);
-                    var scheme = NavigationHelperService.Current.GetProtocolScheme(args);
+                    var contactRemoteIds = MyNavigationHelperService.Current.GetContactRemoteIds(args);
+                    var scheme = MyNavigationHelperService.Current.GetProtocolScheme(args);
 
                     appMainShell.NavigateToPage(new NavigationParameter { Scheme = scheme, ContactRemoteIds = contactRemoteIds });
 
@@ -159,9 +161,27 @@ namespace Eyup
             }
         }
 
-        protected override void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
+        protected async override void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
         {
-            
+            if (!_isContactsInitialized)
+            {
+                await InitializeAllAsync();
+            }
+
+            Frame rootFrame = CreateRootFrame();
+
+            if (rootFrame.Content == null)
+            {
+                if (!rootFrame.Navigate(typeof(AppMainShell)))
+                {
+                    throw new Exception("Failed to create initial page");
+                }
+            }
+
+            var appMainShell = rootFrame.Content as AppMainShell;
+            appMainShell.NavigateToPageFromShare(args);
+
+            Window.Current.Activate();
         }
 
         /// <summary>
