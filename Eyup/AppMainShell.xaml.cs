@@ -111,13 +111,42 @@ namespace Eyup
             }
         }
 
-        public void NavigateToPageFromShare(ShareTargetActivatedEventArgs shareTargetActivatedEventArgs)
+        public async void NavigateToPageFromShare(ShareTargetActivatedEventArgs shareTargetActivatedEventArgs)
         {
+            ContactsPage.Visibility = Visibility.Collapsed;
             _shareTargetActivatedEventArgs = shareTargetActivatedEventArgs;
 
             if (_shareTargetActivatedEventArgs != null)
             {
-                ContactPickerPopup.IsOpen = true;
+                var shareOperation = _shareTargetActivatedEventArgs.ShareOperation;
+
+                if (shareOperation.Contacts == null || shareOperation.Contacts?.Count == 0)
+                {
+                    ContactPickerPopup.IsOpen = true;
+                }
+                else
+                {
+                    var lightContact = shareOperation.Contacts[0];
+
+                    var appContactId = await MyContactStoreService.Current.GetRemoteIdForContactIdAsync(lightContact.Id);
+
+                    AppContact appContact = null;
+
+                    if (appContactId != null)
+                    {
+                        appContact = (from a in App.AppContacts where a.ContactId == appContactId select a).FirstOrDefault();
+                    }
+
+                    NavigationParameter navigationParameter = new NavigationParameter
+                    {
+                        AppContact = appContact,
+                        ShareTargetActivatedEventArgs = _shareTargetActivatedEventArgs
+                    };
+
+                    AppFrame.Navigate(typeof(ChatPage), navigationParameter);
+
+                    _shareTargetActivatedEventArgs = null;
+                }
             }
         }
 
@@ -140,18 +169,6 @@ namespace Eyup
                 };
 
                 AppFrame.Navigate(typeof(ChatPage), navigationParameter);
-
-                //var shareOperation = _shareTargetActivatedEventArgs.ShareOperation;
-
-                //if (shareOperation.Data.Contains(StandardDataFormats.WebLink))
-                //{
-
-                //}
-
-                //if (shareOperation.Data.Contains(StandardDataFormats.Bitmap))
-                //{
-
-                //}
             }
             _shareTargetActivatedEventArgs = null;
         }

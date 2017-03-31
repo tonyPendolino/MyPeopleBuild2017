@@ -8,9 +8,13 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -58,7 +62,7 @@ namespace Eyup.Views
 
         private async void Current_ChatMessageReceived(object sender, ChatMessage e)
         {
-            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Low, () => { AppContact.ChatHistory.Add(e); }); 
+            await CoreWindow.GetForCurrentThread().Dispatcher.RunAsync(CoreDispatcherPriority.Low, () => { AppContact.ChatHistory.Add(e); }); 
         }
 
         private void ChatTextBox_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -67,11 +71,9 @@ namespace Eyup.Views
             {
                 ChatMessage sendMessage = new ChatMessage { Text = ChatTextBox.Text, SenderOrReceiver = ChatMessage.SenderOrReceiverEnum.Sender };
                 AppContact.ChatHistory.Add(sendMessage);
-
-                MyChatService.Current.SendChatMessage(sendMessage);
-                                
                 ChatTextBox.Text = string.Empty;
                 e.Handled = true;
+                MyChatService.Current.SendChatMessage(sendMessage);
             }
         }
 
@@ -84,13 +86,15 @@ namespace Eyup.Views
             {
                 var shareOperation = navigationParameter.ShareTargetActivatedEventArgs.ShareOperation;
 
-                if(shareOperation.Data.Contains(StandardDataFormats.Bitmap))
+                if(shareOperation.Data.Contains(StandardDataFormats.StorageItems))
                 {
-                    var randomAccessStreamReference = await shareOperation.Data.GetBitmapAsync();
-                    var randomAccessStream = await randomAccessStreamReference.OpenReadAsync();
+                    var storageItems = await shareOperation.Data.GetStorageItemsAsync();
+                    var storageFile = storageItems[0] as StorageFile;
+                                        
+                    var randomAccessStream = await storageFile.OpenAsync(FileAccessMode.Read);
                     BitmapImage bitmapImage = new BitmapImage();
                     bitmapImage.SetSource(randomAccessStream);
-
+                    
                     ChatMessage sendMessage = new ChatMessage { Image = bitmapImage, SenderOrReceiver = ChatMessage.SenderOrReceiverEnum.Sender };
                     AppContact.ChatHistory.Add(sendMessage);
 
@@ -106,6 +110,8 @@ namespace Eyup.Views
 
                     MyChatService.Current.SendChatMessage(sendMessage);
                 }
+
+                await new MessageDialog("Content shared.").ShowAsync();
 
                 shareOperation.ReportCompleted();
             }           

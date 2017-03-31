@@ -19,7 +19,7 @@ namespace Eyup.Services
 
         public void SendChatMessage(ChatMessage chatMessage)
         {
-            if(chatMessage?.Text.ToLower().Contains("hello") == true)
+            if(chatMessage?.Text?.ToLower()?.Contains("hello") == true)
             {
                 Task.Delay(1000).ContinueWith((t) => { ChatMessageReceived?.Invoke(this, new ChatMessage { SenderOrReceiver = ChatMessage.SenderOrReceiverEnum.Receiver, Text = "Hi! How are you?" }); });
             }
