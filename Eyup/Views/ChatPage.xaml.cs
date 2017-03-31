@@ -62,7 +62,7 @@ namespace Eyup.Views
 
         private async void Current_ChatMessageReceived(object sender, ChatMessage e)
         {
-            await CoreWindow.GetForCurrentThread().Dispatcher.RunAsync(CoreDispatcherPriority.Low, () => { AppContact.ChatHistory.Add(e); }); 
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Low, () => { AppContact.ChatHistory.Add(e); }); 
         }
 
         private void ChatTextBox_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -94,20 +94,17 @@ namespace Eyup.Views
                     var randomAccessStream = await storageFile.OpenAsync(FileAccessMode.Read);
                     BitmapImage bitmapImage = new BitmapImage();
                     bitmapImage.SetSource(randomAccessStream);
-                    
+
                     ChatMessage sendMessage = new ChatMessage { Image = bitmapImage, SenderOrReceiver = ChatMessage.SenderOrReceiverEnum.Sender };
                     AppContact.ChatHistory.Add(sendMessage);
-
                     MyChatService.Current.SendChatMessage(sendMessage);
                 }
 
                 if (shareOperation.Data.Contains(StandardDataFormats.WebLink))
                 {
                     var uri = await shareOperation.Data.GetWebLinkAsync();
-
                     ChatMessage sendMessage = new ChatMessage { Text = uri.OriginalString, SenderOrReceiver = ChatMessage.SenderOrReceiverEnum.Sender };
                     AppContact.ChatHistory.Add(sendMessage);
-
                     MyChatService.Current.SendChatMessage(sendMessage);
                 }
 
