@@ -4,19 +4,14 @@
     xmlns:views="using:Eyup.Views"
     xmlns:local="using:Eyup.Styles">
 
-<<<<<<< HEAD
-=======
     <!-- General Styles -->
 
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
     <!-- AppMainShell Styles -->
 
     <Style x:Key="ContactsPageStyle" TargetType="views:ContactsPage">
         <Setter Property="Width" Value="240" />
     </Style>
 
-<<<<<<< HEAD
-=======
     <Style x:Key="ContactPickerPopupStyle" TargetType="Popup">
         <Setter Property="VerticalOffset" Value="100" />
         <Setter Property="Width" Value="320" />
@@ -32,7 +27,6 @@
         <Setter Property="BorderBrush" Value="Black" />
     </Style>
 
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
     <!-- ContactsPage Styles -->
 
     <Style x:Key="ContactTemplateRootGrid" TargetType="Grid">
@@ -68,12 +62,6 @@
         <Setter Property="Background" Value="White" />
     </Style>
 
-<<<<<<< HEAD
-    <Style x:Key="ChatTextBoxStyle" TargetType="TextBox">
-        <Setter Property="Background" Value="AliceBlue" />
-    </Style>
-    
-=======
     <Style x:Key="ChatHistoryListViewItemContainerStyle" TargetType="ListViewItem">
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     </Style>
@@ -112,7 +100,6 @@
         <Setter Property="Padding" Value="10" />
     </Style>
 
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
     <!-- ProfilePage Styles -->
     
     <Style x:Key="ProfilePageAvatarEllipseStyle" TargetType="Ellipse">

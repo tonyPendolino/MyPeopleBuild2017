@@ -23,8 +23,6 @@
             </Frame.ContentTransitions>
         </Frame>
 
-<<<<<<< HEAD
-=======
         <Popup x:Name="ContactPickerPopup" IsOpen="False" IsLightDismissEnabled="True" Style="{StaticResource ContactPickerPopupStyle}" Loaded="ContactPickerPopup_Loaded">
             <Popup.ChildTransitions>
                 <TransitionCollection>
@@ -39,6 +37,5 @@
             </Border>
         </Popup>
         
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
     </RelativePanel>
 </Page>

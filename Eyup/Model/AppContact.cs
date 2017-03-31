@@ -5,10 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-<<<<<<< HEAD
-=======
 using Windows.UI.Core;
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
 
 namespace Eyup.Model
 {
@@ -18,11 +15,7 @@ namespace Eyup.Model
 
         public AppContact()
         {
-<<<<<<< HEAD
-            ChatHistory = new ObservableCollection<string>();
-=======
             ChatHistory = new ObservableCollection<ChatMessage>();
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
         }
 
         private string contactId;
@@ -109,15 +102,9 @@ namespace Eyup.Model
             }
         }
 
-<<<<<<< HEAD
-        private ObservableCollection<string> chatHistory;
-
-        public ObservableCollection<string> ChatHistory
-=======
         private ObservableCollection<ChatMessage> chatHistory;
 
         public ObservableCollection<ChatMessage> ChatHistory
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
         {
             get { return chatHistory; }
             set

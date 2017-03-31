@@ -1,15 +1,5 @@
 ﻿using Eyup.Helpers;
 using Eyup.Model;
-<<<<<<< HEAD
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-=======
 using Eyup.Services;
 using System;
 using System.Collections.Generic;
@@ -25,17 +15,13 @@ using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.Popups;
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-<<<<<<< HEAD
-=======
 using Windows.UI.Xaml.Media.Imaging;
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -45,17 +31,6 @@ namespace Eyup.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-<<<<<<< HEAD
-    public sealed partial class ChatPage : Page
-    {
-        public AppContact AppContact { get; set; }
-
-        public static event EventHandler<AppContactEventArgs> AvatarTapped;
-
-        public ChatPage()
-        {
-            this.InitializeComponent();
-=======
     public sealed partial class ChatPage : Page, INotifyPropertyChanged
     {
         private AppContact appContact;
@@ -88,24 +63,12 @@ namespace Eyup.Views
         private async void Current_ChatMessageReceived(object sender, ChatMessage e)
         {
             await Dispatcher.RunAsync(CoreDispatcherPriority.Low, () => { AppContact.ChatHistory.Add(e); }); 
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
         }
 
         private void ChatTextBox_KeyDown(object sender, KeyRoutedEventArgs e)
         {
             if(e.Key == Windows.System.VirtualKey.Enter)
             {
-<<<<<<< HEAD
-                AppContact.ChatHistory.Add(ChatTextBox.Text);
-                ChatTextBox.Text = string.Empty;
-                e.Handled = true;
-            }
-        }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            AppContact = e.Parameter as AppContact;
-=======
                 ChatMessage sendMessage = new ChatMessage { Text = ChatTextBox.Text, SenderOrReceiver = ChatMessage.SenderOrReceiverEnum.Sender };
                 AppContact.ChatHistory.Add(sendMessage);
                 ChatTextBox.Text = string.Empty;
@@ -149,20 +112,16 @@ namespace Eyup.Views
 
                 shareOperation.ReportCompleted();
             }           
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
         }
 
         private void AvatarEllipse_Tapped(object sender, TappedRoutedEventArgs e)
         {
             AvatarTapped?.Invoke(this, new AppContactEventArgs(AppContact));
         }
-<<<<<<< HEAD
-=======
 
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
     }
 }

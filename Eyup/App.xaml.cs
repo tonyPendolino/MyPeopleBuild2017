@@ -20,11 +20,8 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Eyup.Services;
 using Windows.ApplicationModel.Contacts;
-<<<<<<< HEAD
-=======
 using Windows.ApplicationModel.DataTransfer.ShareTarget;
 using Windows.ApplicationModel.DataTransfer;
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
 
 namespace Eyup
 {
@@ -137,13 +134,8 @@ namespace Eyup
                     }
 
                     var appMainShell = rootFrame.Content as AppMainShell;
-<<<<<<< HEAD
-                    var contactRemoteIds = NavigationHelperService.Current.GetContactRemoteIds(args);
-                    var scheme = NavigationHelperService.Current.GetProtocolScheme(args);
-=======
                     var contactRemoteIds = MyNavigationHelperService.Current.GetContactRemoteIds(args);
                     var scheme = MyNavigationHelperService.Current.GetProtocolScheme(args);
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
 
                     appMainShell.NavigateToPage(new NavigationParameter { Scheme = scheme, ContactRemoteIds = contactRemoteIds });
 
@@ -169,11 +161,6 @@ namespace Eyup
             }
         }
 
-<<<<<<< HEAD
-        protected override void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
-        {
-            
-=======
         protected async override void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
         {
             if (!_isContactsInitialized)
@@ -195,7 +182,6 @@ namespace Eyup
             appMainShell.NavigateToPageFromShare(args);
 
             Window.Current.Activate();
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
         }
 
         /// <summary>

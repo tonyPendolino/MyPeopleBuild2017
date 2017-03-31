@@ -12,11 +12,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.16168.0</TargetPlatformVersion>
-<<<<<<< HEAD
-    <TargetPlatformMinVersion>10.0.16168.0</TargetPlatformMinVersion>
-=======
     <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -105,26 +101,18 @@
       <DependentUpon>AppContactPanelShell.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AppContactEventArgs.cs" />
-<<<<<<< HEAD
-    <Compile Include="Model\NavigationParameter.cs" />
-    <Compile Include="Services\NavigationHelperService.cs" />
-=======
     <Compile Include="Helpers\SenderOrReceiverToHorizontalAlignmentConverter.cs" />
     <Compile Include="Model\ChatMessage.cs" />
     <Compile Include="Model\NavigationParameter.cs" />
     <Compile Include="Services\MyChatService.cs" />
     <Compile Include="Services\MyNavigationHelperService.cs" />
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
     <Compile Include="Views\ChatPage.xaml.cs">
       <DependentUpon>ChatPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="Views\ContactPicker.xaml.cs">
       <DependentUpon>ContactPicker.xaml</DependentUpon>
     </Compile>
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
     <Compile Include="Views\ContactsPage.xaml.cs">
       <DependentUpon>ContactsPage.xaml</DependentUpon>
     </Compile>
@@ -199,13 +187,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-<<<<<<< HEAD
-=======
     <Page Include="Views\ContactPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
->>>>>>> 67e26bb25a0b2517290f7f360f2c4839f1d80ca6
     <Page Include="Views\ContactsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
