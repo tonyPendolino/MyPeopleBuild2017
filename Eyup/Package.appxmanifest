@@ -37,7 +37,7 @@
           </uap:ShareTarget>
         </uap:Extension>
         <uap4:Extension Category="windows.contactPanel">
-          <uap4:ContactPanel SupportsUnknownContacts="true" />
+          <!--<uap4:ContactPanel SupportsUnknownContacts="true" />-->
         </uap4:Extension>
       </Extensions>
     </Application>
