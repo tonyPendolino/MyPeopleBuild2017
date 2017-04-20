@@ -13,5 +13,6 @@ namespace Eyup
         public const string CONTACT_CONTEXT_MENU_TEXT_UNPIN = "Unpin";
         public const string CONTACT_CONTEXT_MENU_TAG_PIN = "Pin";
         public const string CONTACT_CONTEXT_MENU_TAG_UNPIN = "Unpin";
+        public const string SHOULDER_TAP_MAGIC_PHRASE = "Hi!";
     }
 }
