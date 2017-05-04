@@ -7,8 +7,8 @@
     <ProjectGuid>{2E160272-0AA4-4BFA-B482-DDBC532D44D0}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Eyup</RootNamespace>
-    <AssemblyName>Eyup</AssemblyName>
+    <RootNamespace>MyPeopleSample</RootNamespace>
+    <AssemblyName>MyPeopleSample</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.16168.0</TargetPlatformVersion>
