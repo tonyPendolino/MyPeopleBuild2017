@@ -8,7 +8,7 @@ namespace Eyup
 {
     public static class Constants
     {
-        public const string CONTACT_LIST_NAME = "eyup";
+        public const string CONTACT_LIST_NAME = "MyPeople";
         public const string CONTACT_CONTEXT_MENU_TEXT_PIN = "Pin";
         public const string CONTACT_CONTEXT_MENU_TEXT_UNPIN = "Unpin";
         public const string CONTACT_CONTEXT_MENU_TAG_PIN = "Pin";
