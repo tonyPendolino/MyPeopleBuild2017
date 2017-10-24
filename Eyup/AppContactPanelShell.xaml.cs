@@ -88,10 +88,15 @@ namespace Eyup
             LauncherOptions options = new LauncherOptions();
             options.TargetApplicationPackageFamilyName = "fa86aedc-86f1-4dfc-9ecf-04a41289f016_rkjxvw9zmwpp0";
             options.UI.PreferredPlacement = Windows.UI.Popups.Placement.Default;
-            bool success = await Launcher.LaunchUriAsync(new Uri($"ms-contact-profile:?ContactRemoteIds={_appContactId}"), options);
-
-            sender.ClosePanel();
-            args.Handled = true;
+            
+            await this.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    await Launcher.LaunchUriAsync(new Uri($"ms-contact-profile:?ContactRemoteIds={_appContactId}"), options);
+                    sender.ClosePanel();
+                    args.Handled = true;
+                });
         }
     }
 }
